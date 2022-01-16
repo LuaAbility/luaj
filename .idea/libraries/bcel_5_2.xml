@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="bcel-5.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/bcel-5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/cldcapi11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../lib/midpapi20.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

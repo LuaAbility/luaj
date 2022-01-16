@@ -1,24 +1,24 @@
 /*******************************************************************************
-* Copyright (c) 2007-2011 LuaJ. All rights reserved.
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-* 
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-* THE SOFTWARE.
-******************************************************************************/
+ * Copyright (c) 2007-2011 LuaJ. All rights reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ ******************************************************************************/
 package org.luaj.vm2.lib;
 
 import org.luaj.vm2.Globals;
@@ -65,7 +65,7 @@ public class CoroutineLib extends TwoArgFunction {
 	static int coroutine_count = 0;
 
 	Globals globals;
-	
+
 	/** Perform one-time initialization on the library by creating a table
 	 * containing the library functions, adding that table to the supplied environment,
 	 * adding the table to package.loaded, and returning table as the return value.
@@ -79,7 +79,7 @@ public class CoroutineLib extends TwoArgFunction {
 		coroutine.set("resume", new resume());
 		coroutine.set("running", new running());
 		coroutine.set("status", new status());
-		coroutine.set("yield", new yield());
+		coroutine.set("yield", new yleld());
 		coroutine.set("wrap", new wrap());
 		env.set("coroutine", coroutine);
 		if (!env.get("package").isnil()) env.get("package").get("loaded").set("coroutine", coroutine);
@@ -112,8 +112,8 @@ public class CoroutineLib extends TwoArgFunction {
 			return valueOf( lt.getStatus() );
 		}
 	}
-	
-	final class yield extends VarArgFunction {
+
+	final class yleld extends VarArgFunction {
 		public Varargs invoke(Varargs args) {
 			return globals.yield( args );
 		}

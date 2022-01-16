@@ -170,7 +170,7 @@ abstract public class LibFunction extends LuaFunction {
 	protected void bind(LuaValue env, Class factory,  String[] names, int firstopcode ) {
 		try {
 			for ( int i=0, n=names.length; i<n; i++ ) {
-				LibFunction f = (LibFunction) factory.newInstance();
+				LibFunction f = (LibFunction) factory.getConstructor().newInstance();
 				f.opcode = firstopcode + i;
 				f.name = names[i];
 				env.set(f.name, f);
